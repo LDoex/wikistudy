@@ -11,7 +11,7 @@ import org.springframework.core.env.Environment;
 @ComponentScan("com.oyyk")
 @SpringBootApplication
 public class WikiApplication {
-
+    
     private static final Logger LOG = LoggerFactory.getLogger(WikiApplication.class);
 
     public static void main(String[] args) {
