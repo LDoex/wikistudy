@@ -1,0 +1,25 @@
+GET http://localhost:8080/hello
+#Accept: application/json
+
+#> {%
+#client.demo("demo-hello", function(){
+#    client.log("demo hello");
+#    client.log(response.body);
+#    client.log(JSON.stringify(response.body));
+#    client.assert(response.status === 200, "返回码不是200");
+#    client.assert(response.body === "Hello World!", "结果验证失败");
+#});
+# %}
+###
+
+POST http://localhost:8080/hello/post
+Content-Type: application/x-www-form-urlencoded
+
+name=Demo
+
+###
+
+GET http://localhost:8080/demo/list
+#Accept: application/json
+
+###
