@@ -4,7 +4,9 @@
 <mapper namespace="com.oyyk.wiki.mapper.TestMapper" >
 
     <select id="list" resultType="com.oyyk.wiki.domain.Test">
-        select `id`, `name`, `password` from `test`
+        select
+               `id`, `name`, `password`
+        from `test`
     </select>
 
 </mapper>
