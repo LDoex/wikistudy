@@ -6,11 +6,10 @@ import com.oyyk.wiki.mapper.EbookMapper;
 import com.oyyk.wiki.req.EbookReq;
 import com.oyyk.wiki.resp.EbookResp;
 import com.oyyk.wiki.service.EbookService;
-import org.springframework.beans.BeanUtils;
+import com.oyyk.wiki.util.CopyUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -31,12 +30,7 @@ public class EbookServiceImpl implements EbookService {
         criteria.andNameLike("%"+req.getName()+"%");
         List<Ebook> ebookList = ebookMapper.selectByExample(ebookExample);
 
-        List<EbookResp> respList = new ArrayList<>();
-        for (Ebook ebook : ebookList) {
-            EbookResp ebookResp = new EbookResp();
-            BeanUtils.copyProperties(ebook, ebookResp);
-            respList.add(ebookResp);
-        }
-        return respList;
+        List<EbookResp> list = CopyUtil.copyList(ebookList, EbookResp.class);
+        return list;
     }
 }
